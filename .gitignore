@@ -1,3 +1,5 @@
 
 .DS_Store
 /.idea
+/server/order-auto/dist
+server/order-auto/package-lock.json
