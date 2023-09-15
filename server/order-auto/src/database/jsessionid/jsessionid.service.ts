@@ -21,7 +21,9 @@ export class JsessionidService {
   /**
    * 删除全部，重新写入
    */
-  saveJsessionid(jsessionidEntity: JsessionidEntity) {
+  saveJsessionid(
+    jsessionidEntity: JsessionidEntity,
+  ): Promise<JsessionidEntity | null> {
     this.jsessionidEntityRepository.delete({ type: jsessionidEntity.type });
     return this.jsessionidEntityRepository.save(jsessionidEntity);
   }

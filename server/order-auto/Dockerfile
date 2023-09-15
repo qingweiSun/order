@@ -1,7 +1,6 @@
 FROM node:lts-alpine
-WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
 COPY . .
-EXPOSE 3001
-CMD ["npm", "start"]
+RUN npm run build
+CMD ["npm", "run","start:prod"]

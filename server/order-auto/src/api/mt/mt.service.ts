@@ -29,7 +29,13 @@ export interface UploadParam {
 
 @Injectable()
 export class MtService {
-  constructor(private readonly jsessionidService: JsessionidService) {}
+  constructor(private readonly jsessionidService: JsessionidService) {
+    // axios.interceptors.request.use(function (config) {
+    //   // Do something before request is sent
+    //   console.log('axios.interceptors.request', config);
+    //   return config;
+    // });
+  }
 
   /**
    * 申请
@@ -57,7 +63,6 @@ export class MtService {
    */
   async order(@Req() request: Request) {
     const clientIp = request.headers['x-forwarded-for'] || request.ip;
-    console.log('X-Forwarded-For', clientIp);
     try {
       const jsessionidEntity = await this.jsessionidService.getJsessionid('mt');
       const response = await axios(
@@ -67,6 +72,7 @@ export class MtService {
           headers: {
             ...(await mtHeaders(jsessionidEntity?.jsessionid ?? '')),
             'X-Forwarded-For': clientIp,
+            'X-Real-IP': clientIp,
           },
           data: JSON.stringify({
             limit: 15,
@@ -142,5 +148,9 @@ export class MtService {
     return this.jsessionidService.saveJsessionid(
       new JsessionidEntity(param.jsessionid, 'mt'),
     );
+  }
+
+  jsessionid() {
+    return this.jsessionidService.getJsessionid('mt');
   }
 }

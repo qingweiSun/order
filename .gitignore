@@ -3,3 +3,4 @@
 /.idea
 /server/order-auto/dist
 server/order-auto/package-lock.json
+/server/order-auto/node_modules

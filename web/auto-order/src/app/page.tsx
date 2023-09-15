@@ -1,10 +1,14 @@
 'use client';
-import { Button, Tab, Tabs } from '@nextui-org/react';
+import { Tab, Tabs } from '@nextui-org/react';
 import React, { useState } from 'react';
 import { Mt } from '@/app/components/Mt';
 import { Toaster } from 'react-hot-toast';
 import { Eleme } from '@/app/components/Eleme';
 
+/**
+ * 首页
+ * @constructorx
+ */
 export default function Home() {
   const [searchText, setSearchText] = useState('');
 

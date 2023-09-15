@@ -48,4 +48,10 @@ export class MtController {
   upload(@Body() param: UploadParam) {
     return this.mtService.upload(param);
   }
+
+  @Post('jsessionid')
+  @HttpCode(200)
+  jsessionid() {
+    return this.mtService.jsessionid();
+  }
 }

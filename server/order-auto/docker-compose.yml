@@ -1,0 +1,14 @@
+version: '1.0.0'
+services:
+  app:
+    container_name: order-auto
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: order-auto
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=production
+    labels:
+      - dev.orbstack.domains=order.local

@@ -4,8 +4,8 @@ import { JsessionidEntity } from './jsessionid/jsessionid.entity';
 export const databaseProviders = [
   {
     provide: 'DATA_SOURCE',
-    useFactory: async () => {
-      const dataSource = new DataSource({
+    useFactory: async (): Promise<DataSource> => {
+      const dataSource: DataSource = new DataSource({
         type: 'mysql',
         host: '43.142.234.117',
         port: 3306,

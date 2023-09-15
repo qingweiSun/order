@@ -138,4 +138,8 @@ export class ElemeService {
       new JsessionidEntity(param.jsessionid, 'eleme'),
     );
   }
+
+  jsessionid() {
+    return this.jsessionidService.getJsessionid('eleme');
+  }
 }

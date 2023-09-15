@@ -4,15 +4,12 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: '飞鹅自动出餐',
-  description: '飞鹅审核',
+  description: '飞鹅自动出餐审核',
   viewport: {
     width: 'device-width',
     initialScale: 1,
     minimumScale: 1,
     maximumScale: 1,
-  },
-  icons: {
-    icon: '/next.svg',
   },
 };
 export default function RootLayout({ children }: { children: ReactNode }) {

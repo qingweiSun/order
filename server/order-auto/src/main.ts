@@ -10,7 +10,6 @@ async function bootstrap() {
     allowedHeaders: '*',
   });
   await app.listen(3001);
-  console.log('本地地址', 'http://localhost:3001');
 }
 
 bootstrap();
