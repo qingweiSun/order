@@ -2,5 +2,7 @@
 .DS_Store
 /.idea
 /server/order-auto/dist
-server/order-auto/package-lock.json
+/server/order-auto/package-lock.json
 /server/order-auto/node_modules
+/web/auto-order/node_modules
+/web/auto-order/package-lock.json

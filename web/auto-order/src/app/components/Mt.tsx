@@ -249,6 +249,7 @@ export const Mt = ({
       const data6: any = await res6.json();
       if (data6.status == 0) {
         toast.success('审核成功');
+        setPassAllIng(false);
         await getOrderList();
       } else {
         toast.error('审核失败');

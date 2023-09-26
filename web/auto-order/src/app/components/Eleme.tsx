@@ -219,6 +219,7 @@ export const Eleme = ({
       });
       const data6 = await res6.json();
       if (data6.status == 0) {
+        setPassAllIng(false);
         toast.success('审核成功');
         await getOrderList();
       } else {
