@@ -1,10 +1,8 @@
-import { Injectable, Req } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { mtHeaders } from './head';
 import { JsessionidService } from '../../database/jsessionid/jsessionid.service';
 import { JsessionidEntity } from '../../database/jsessionid/jsessionid.entity';
 import axios from 'axios';
-import { Request } from 'express';
-
 export interface ApplyParam {
   wmPoiId: string;
   orderDay: string;
@@ -61,8 +59,7 @@ export class MtService {
   /**
    * 待审核列表
    */
-  async order(@Req() request: Request) {
-    const clientIp = request.headers['x-forwarded-for'] || request.ip;
+  async order() {
     try {
       const jsessionidEntity = await this.jsessionidService.getJsessionid('mt');
       const response = await axios(
@@ -71,8 +68,6 @@ export class MtService {
           method: 'POST',
           headers: {
             ...(await mtHeaders(jsessionidEntity?.jsessionid ?? '')),
-            'X-Forwarded-For': clientIp,
-            'X-Real-IP': clientIp,
           },
           data: JSON.stringify({
             limit: 15,

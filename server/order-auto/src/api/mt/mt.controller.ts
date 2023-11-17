@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, Post, Req } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import {
   ApplyParam,
   DeleteParam,
@@ -7,7 +7,6 @@ import {
   SearchParam,
   UploadParam,
 } from './mt.service';
-import { Request } from 'express';
 
 @Controller('api/mt')
 export class MtController {
@@ -21,8 +20,8 @@ export class MtController {
 
   @Post('order')
   @HttpCode(200)
-  order(@Req() request: Request) {
-    return this.mtService.order(request);
+  order() {
+    return this.mtService.order();
   }
 
   @Post('delete')
